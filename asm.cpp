@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include<cmath>
 	int min(int a,int b){
 		int min = a;
@@ -114,7 +115,48 @@
 			tienDien = a+b+c+d+(tienDien-400)*2.927;
 		}
 		printf("Tien dien thang nay: %f\n", tienDien);
-}
+	}
+	void fLot(){
+		int i,j,count;
+		int num[2],prize[2];
+		for(i = 0;i<2;i++){
+			printf("Nhap vao so du thuong thu %d:",i+1);
+			scanf("%d",&num[i]);
+		}
+		for(i=0;i<2;i++){
+			prize[i] = 1+ rand()%14;
+		}
+		for(i=0;i<2;i++){
+			for(j=1;j<2;j++){
+				if(prize[i]==prize[j]){
+					if(num[i]==num[j]){
+						if(num[i]==prize[i]){
+							count =1;
+						}
+					}
+				}else{
+					if(num[i]==num[j]){
+						if(num[i]==prize[i] || num[i] == prize[j]){
+							count = 1;
+						}
+					}else{
+						if(num[i]==prize[i] || num[i]==prize[j] || num[j]==prize[i] || num[j] == prize[j]){
+							count++;
+						}
+					}
+				}
+			}
+		}
+		printf("Giai thuong hom nay la: %d, %d\n",prize[0],prize[1]);
+		if(count==0){
+			printf("Chuc ban may man lan sau\n");
+		}else if(count==1){
+			printf("Chuc mung ban trung giai nhi\n");
+		}else{
+			printf("Chuc mung ban trung giai nhat\n");
+		}
+		
+	}
 int main(){
 	int fun;
 	printf("\n");
@@ -210,6 +252,7 @@ int main(){
 		}
 		case 9:{
 			printf("9. Game POLY-LOTT\n");
+			fLot();
 			break;
 		}
 		case 10:{
