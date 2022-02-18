@@ -141,20 +141,15 @@
 						}
 					}else{
 						if(num[i]==prize[i] || num[i]==prize[j] || num[j]==prize[i] || num[j] == prize[j]){
-							count++;
+							++count;
 						}
+						
 					}
 				}
 			}
 		}
 		printf("Giai thuong hom nay la: %d, %d\n",prize[0],prize[1]);
-		if(count==0){
-			printf("Chuc ban may man lan sau\n");
-		}else if(count==1){
-			printf("Chuc mung ban trung giai nhi\n");
-		}else{
-			printf("Chuc mung ban trung giai nhat\n");
-		}
+		printf("%d",count);
 		
 	}
 int main(){
